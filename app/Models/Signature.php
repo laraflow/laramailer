@@ -5,6 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Signature extends Model
 {
@@ -36,7 +37,10 @@ class Signature extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function userProfile(): BelongsTo
+    {
+        return $this->belongsTo(UserProfile::class);
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES
